@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cove CSS — Tom Sipply</title>
+  <meta name="description" content="Tom Sipply builds focused Chrome extensions for developers and educators. Based in [YOUR CITY], Canada." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --ink:       #16120e;
+      --ink-soft:  #4a4540;
+      --ink-muted: #7a7268;
+      --ground:    #f6f4ef;
+      --surface:   #ffffff;
+      --border:    #e0dbd0;
+      --gold:      #b07d2e;
+      --gold-light:#fdf6e3;
+      --teal:      #1a6b5a;
+      --teal-light:#e6f4f0;
+      --radius:    8px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: var(--ground);
+      color: var(--ink);
+      font-size: 16px;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+
+    /* ── NAV ── */
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 48px;
+      background: var(--ink);
+      border-bottom: 2px solid var(--gold);
+    }
+
+    .nav-logo {
+      font-size: 17px;
+      font-weight: 700;
+      color: #f5f3ee;
+      letter-spacing: 0.3px;
+    }
+
+    .nav-logo span { color: #c8973a; }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+    }
+
+    .nav-links a {
+      font-size: 13.5px;
+      font-weight: 500;
+      color: #9a9080;
+      transition: color 0.15s;
+    }
+
+    .nav-links a:hover { color: #f5f3ee; }
+
+    .nav-contact {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--ink) !important;
+      background: #c8973a;
+      padding: 7px 18px;
+      border-radius: var(--radius);
+      transition: background 0.15s !important;
+    }
+
+    .nav-contact:hover {
+      background: #a07828 !important;
+      color: var(--ink) !important;
+    }
+
+
+    /* ── HERO ── */
+
+    .hero {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 96px 48px 80px;
+    }
+
+    .hero-eyebrow {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 20px;
+    }
+
+    .hero h1 {
+      font-size: clamp(32px, 5.5vw, 52px);
+      font-weight: 700;
+      line-height: 1.15;
+      letter-spacing: -0.8px;
+      color: var(--ink);
+      margin-bottom: 24px;
+    }
+
+    .hero h1 em {
+      font-style: normal;
+      color: var(--gold);
+    }
+
+    .hero-bio {
+      font-size: 17px;
+      color: var(--ink-soft);
+      max-width: 600px;
+      line-height: 1.75;
+      margin-bottom: 40px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .btn-dark {
+      background: var(--ink);
+      color: #f5f3ee;
+      font-size: 14.5px;
+      font-weight: 700;
+      padding: 13px 28px;
+      border-radius: var(--radius);
+      transition: background 0.15s;
+      letter-spacing: 0.02em;
+    }
+
+    .btn-dark:hover { background: #2a2620; }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--ink);
+      font-size: 14.5px;
+      font-weight: 600;
+      padding: 13px 28px;
+      border-radius: var(--radius);
+      border: 1.5px solid #b8b0a0;
+      transition: border-color 0.15s;
+    }
+
+    .btn-outline:hover { border-color: var(--ink); }
+
+
+    /* ── ABOUT STRIP ── */
+
+    .about-strip {
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 56px 48px;
+    }
+
+    .about-inner {
+      max-width: 780px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: start;
+    }
+
+    .about-text h2 {
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 14px;
+      letter-spacing: -0.2px;
+    }
+
+    .about-text p {
+      font-size: 14.5px;
+      color: var(--ink-soft);
+      line-height: 1.75;
+      margin-bottom: 12px;
+    }
+
+    .about-text p:last-child { margin-bottom: 0; }
+
+    .about-stats {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .stat {
+      background: var(--ground);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 18px 22px;
+    }
+
+    .stat-number {
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--ink);
+      letter-spacing: -0.5px;
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+
+    .stat-label {
+      font-size: 13px;
+      color: var(--ink-muted);
+      font-weight: 500;
+    }
+
+
+    /* ── WORK ── */
+
+    .work {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 72px 48px;
+    }
+
+    .section-label {
+      font-size: 11.5px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+      margin-bottom: 10px;
+    }
+
+    .section-title {
+      font-size: 24px;
+      font-weight: 700;
+      letter-spacing: -0.2px;
+      margin-bottom: 36px;
+    }
+
+    .project-list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .project-card {
+      background: var(--surface);
+      border: 1.5px solid var(--border);
+      border-radius: 10px;
+      padding: 26px 28px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 20px;
+      align-items: start;
+      transition: border-color 0.15s, box-shadow 0.15s;
+    }
+
+    .project-card:hover {
+      border-color: var(--gold);
+      box-shadow: 0 2px 12px rgba(176, 125, 46, 0.1);
+    }
+
+    .project-tags {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+      margin-bottom: 10px;
+    }
+
+    .tag {
+      font-size: 10.5px;
+      font-weight: 700;
+      letter-spacing: 0.4px;
+      text-transform: uppercase;
+      padding: 2px 8px;
+      border-radius: 3px;
+    }
+
+    .tag-ext {
+      background: var(--teal-light);
+      color: var(--teal);
+      border: 1px solid #a0d4c8;
+    }
+
+    .tag-free {
+      background: #eaf5ef;
+      color: #1a5c38;
+      border: 1px solid #8ecfaa;
+    }
+
+    .tag-pro {
+      background: var(--ink);
+      color: #c8973a;
+      border: 1px solid #5a4820;
+    }
+
+    .project-name {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 6px;
+    }
+
+    .project-desc {
+      font-size: 13.5px;
+      color: var(--ink-soft);
+      line-height: 1.65;
+    }
+
+    .project-link {
+      white-space: nowrap;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--ink);
+      background: var(--ground);
+      border: 1.5px solid var(--border);
+      padding: 7px 16px;
+      border-radius: 6px;
+      transition: all 0.15s;
+      flex-shrink: 0;
+    }
+
+    .project-link:hover {
+      border-color: var(--gold);
+      background: var(--gold-light);
+    }
+
+
+    /* ── FOCUS AREAS ── */
+
+    .focus {
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 72px 48px;
+    }
+
+    .focus-inner {
+      max-width: 780px;
+      margin: 0 auto;
+    }
+
+    .focus-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 36px;
+    }
+
+    .focus-card {
+      background: var(--ground);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 22px;
+    }
+
+    .focus-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      background: var(--ink);
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .focus-icon svg {
+      width: 18px;
+      height: 18px;
+      stroke: #c8973a;
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .focus-card h3 {
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 7px;
+      color: var(--ink);
+    }
+
+    .focus-card p {
+      font-size: 13px;
+      color: var(--ink-soft);
+      line-height: 1.6;
+    }
+
+
+    /* ── CONTACT ── */
+
+    .contact {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 80px 48px 96px;
+      text-align: center;
+    }
+
+    .contact h2 {
+      font-size: 28px;
+      font-weight: 700;
+      margin-bottom: 14px;
+      letter-spacing: -0.3px;
+    }
+
+    .contact p {
+      font-size: 15px;
+      color: var(--ink-soft);
+      max-width: 480px;
+      margin: 0 auto 36px;
+      line-height: 1.7;
+    }
+
+    .contact-email {
+      display: inline-block;
+      background: var(--ink);
+      color: #f5f3ee;
+      font-size: 15px;
+      font-weight: 700;
+      padding: 14px 32px;
+      border-radius: var(--radius);
+      transition: background 0.15s;
+      letter-spacing: 0.02em;
+    }
+
+    .contact-email:hover { background: #2a2620; }
+
+
+    /* ── FOOTER ── */
+
+    footer {
+      background: var(--ink);
+      border-top: 2px solid var(--gold);
+      padding: 24px 48px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    footer p {
+      font-size: 13px;
+      color: #6a6458;
+    }
+
+    footer a {
+      color: #c8973a;
+      font-weight: 500;
+      transition: color 0.15s;
+    }
+
+    footer a:hover { color: #f5f3ee; }
+
+
+    /* ── RESPONSIVE ── */
+
+    @media (max-width: 680px) {
+      nav { padding: 14px 20px; }
+      .nav-links { gap: 16px; }
+      .hero, .work, .contact { padding-left: 20px; padding-right: 20px; }
+      .about-strip, .focus { padding-left: 20px; padding-right: 20px; }
+      .about-inner { grid-template-columns: 1fr; gap: 32px; }
+      .focus-grid { grid-template-columns: 1fr; }
+      .project-card { grid-template-columns: 1fr; }
+      footer { flex-direction: column; text-align: center; }
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="/" class="nav-logo">Cove<span>CSS</span></a>
+    <div class="nav-links">
+      <a href="#work">Work</a>
+      <a href="#about">About</a>
+      <a href="#contact" class="nav-contact">Get in Touch</a>
+    </div>
+  </nav>
+
+
+  <!-- HERO -->
+  <section class="hero">
+    <p class="hero-eyebrow">Chrome Extensions &amp; Web Development</p>
+    <h1>Hi, I'm Tom.<br/>I build tools that <em>teach.</em></h1>
+    <p class="hero-bio">
+      I'm a web developer based in Vancouver, Canada, focused on building Chrome extensions
+      with an educational and accessibility focus. I believe good developer tools should
+      make complex concepts tangible — not just automatable.
+    </p>
+    <div class="hero-actions">
+      <a href="#work" class="btn-dark">See My Work</a>
+      <a href="#contact" class="btn-outline">Get in Touch</a>
+    </div>
+  </section>
+
+
+  <!-- ABOUT -->
+  <section class="about-strip" id="about">
+    <div class="about-inner">
+      <div class="about-text">
+        <h2>About Cove CSS</h2>
+        <p>
+          Cove CSS is my personal development studio — where I build focused, well-crafted
+          browser tools for developers, designers, and educators.
+        </p>
+        <p>
+          My work sits at the intersection of web standards, accessibility, and education.
+          Every project I ship is built to help someone understand something better —
+          whether that's a designer understanding colour contrast, or a developer learning
+          how real users experience the web.
+        </p>
+        <p>
+          I work in vanilla JavaScript, Chrome Extension APIs, and CSS — keeping
+          dependencies minimal and performance tight.
+        </p>
+      </div>
+      <div class="about-stats">
+        <div class="stat">
+          <div class="stat-number">Chrome</div>
+          <div class="stat-label">Extension platform — Manifest V3</div>
+        </div>
+        <div class="stat">
+          <div class="stat-number">WCAG</div>
+          <div class="stat-label">Accessibility-first approach</div>
+        </div>
+        <div class="stat">
+          <div class="stat-number">0</div>
+          <div class="stat-label">Third-party frameworks — vanilla JS only</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- WORK -->
+  <section class="work" id="work">
+    <p class="section-label">Projects</p>
+    <h2 class="section-title">What I've built</h2>
+
+    <div class="project-list">
+
+      <div class="project-card">
+        <div>
+          <div class="project-tags">
+            <span class="tag tag-ext">Chrome Extension</span>
+            <span class="tag tag-free">Free</span>
+            <span class="tag tag-pro">Pro</span>
+          </div>
+          <div class="project-name">EmpathyLens</div>
+          <p class="project-desc">
+            An accessibility simulator that lets developers and designers experience their
+            own interfaces through the lens of users with visual, cognitive, and motor
+            impairments. Includes colour blindness filters, blur, dyslexia simulation,
+            hand tremor, and a live WCAG contrast analyser.
+          </p>
+        </div>
+        <a href="YOUR_CHROME_STORE_URL" class="project-link">View Extension</a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- FOCUS AREAS -->
+  <section class="focus">
+    <div class="focus-inner">
+      <p class="section-label">Approach</p>
+      <h2 class="section-title">What I focus on</h2>
+      <div class="focus-grid">
+
+        <div class="focus-card">
+          <div class="focus-icon">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/></svg>
+          </div>
+          <h3>Accessibility</h3>
+          <p>Building tools that make WCAG standards tangible and testable, not just checkboxes.</p>
+        </div>
+
+        <div class="focus-card">
+          <div class="focus-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+          </div>
+          <h3>Education</h3>
+          <p>Every tool I build is designed to teach something — empathy, standards, or technique.</p>
+        </div>
+
+        <div class="focus-card">
+          <div class="focus-icon">
+            <svg viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+          </div>
+          <h3>Clean Code</h3>
+          <p>Vanilla JS and Manifest V3. Extensions that are fast, auditable, and maintainable.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- CONTACT -->
+  <section class="contact" id="contact">
+    <h2>Let's work together.</h2>
+    <p>Have a project in mind, a feature request, or just want to talk about browser extensions and accessibility? I'm easy to reach.</p>
+    <a href="vocabstashextension@gmailcom" class="contact-email">vocabstashextension@gmail.com</a>
+  </section>
+
+
+  <!-- FOOTER -->
+  <footer>
+    <p>&copy; 2026 Cove CSS — Tom Sipply</p>
+    <p>Built with vanilla HTML &amp; CSS &nbsp;&middot;&nbsp; <a href="https://github.com/yourusername" target="_blank">GitHub</a></p>
+  </footer>
+
+</body>
+</html>
